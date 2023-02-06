@@ -28,21 +28,20 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            "img_cover" => "required",
+            
             "name" => "required|min:5|max:255",
             "description" => "required|min:35",
             "link_project" => "min:20",
             "creation_date" => "required|date",
             "img_cover"=> "nullable|image",
-            "type_id"=>"nullable|exsist:types,id"
+            "type_id"=>"nullable"
         ];
     }
 
     public function messages(){
         return[
             
-            "img_cover.required" => "inserire copertina progetto",
-
+           
             "name.required" => "il campo è obbligatorio",
             "name.min" => "min 5 cxaratteri",
             "name.max" => "max 255 caratteri",

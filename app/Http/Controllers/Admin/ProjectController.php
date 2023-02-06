@@ -36,7 +36,11 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        $types = Type::all();
+
+        return view("admin.projects.create",[
+            "types"=>$types
+        ]);
     }
 
     /**
@@ -86,7 +90,7 @@ class ProjectController extends Controller
 
         return view("admin.projects.edit", [
             "project" => $project,
-            "type"=>$types
+            "types"=>$types
         ]);
     }
 

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-
+        
         <a href="{{ route('admin.projects.create') }}" class="btn btn-danger mb-5 mt-5"><i class="fas fa-eye"></i>Crea un nuovo
             Project</a>
 
