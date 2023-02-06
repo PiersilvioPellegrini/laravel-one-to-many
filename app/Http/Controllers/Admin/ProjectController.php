@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
@@ -81,8 +82,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $types = Type::all();
+
         return view("admin.projects.edit", [
-            "project" => $project
+            "project" => $project,
+            "type"=>$types
         ]);
     }
 

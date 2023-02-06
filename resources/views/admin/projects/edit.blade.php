@@ -49,6 +49,23 @@
         </div>
 
         <div class="mb-3">
+            <label class="form-label">Tipo</label>
+            <select class="form-select @error('type_id') is-invalid @enderror" name="type_id">
+
+                @foreach ($type as $singletype)
+                    <option value={{ $singletype->id }}>{{ $singletype->typeName }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+
+
+
+        <div class="mb-3">
             <label class="form-label">LINK_PROJECTS</label>
             <input type="text" class="form-control @error('link_project') is-invalid @enderror" name="link_project"
                 value="{{ old('link_project', $project->link_project) }}">

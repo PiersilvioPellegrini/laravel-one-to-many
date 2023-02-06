@@ -33,7 +33,8 @@ class UpdateProjectRequest extends FormRequest
             "description" => "required|min:35",
             "link_project" => "min:20",
             "creation_date" => "required|date",
-            "img_cover"=> "nullable|image"
+            "img_cover"=> "nullable|image",
+            "type_id"=>"nullable|exsist:types,id"
         ];
     }
 
@@ -52,7 +53,8 @@ class UpdateProjectRequest extends FormRequest
             
             "creation_date.require" => "il campo è obbligatorio",
             "creation_date.date" => "è richiesta una data",
-
+            "type_id.nullable"=>"non hai inserito nessuna categoria",
+            "type_id.exsist"=>"tipologia non disponibile"
         ];
 
     }
