@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        
+
         <a href="{{ route('admin.projects.create') }}" class="btn btn-danger mb-5 mt-5"><i class="fas fa-eye"></i>Crea un nuovo
             Project</a>
 
@@ -24,7 +24,6 @@
                         </thead>
                         <tbody>
                             @foreach ($projects as $singleProject)
-                                
                                 <tr>
                                     <td>{{ $singleProject->id }}</td>
                                     <td>{{ $singleProject->img_cover }}</td>
@@ -38,9 +37,13 @@
                                             class="btn btn-primary mb-2"><i class="fas fa-pencil"></i>Edit Project</a>
                                         <a href="{{ route('admin.projects.show', $singleProject->id) }}"
                                             class="btn btn-info mb-2"><i class="fas fa-eye"></i>Show Projects</a>
-
-                                        {{-- <a href="{{ route('admin.projects.destroy', $singleProject->id) }}"
-                                            class="btn btn-danger mb-2"><i class="fas fa-eye"></i>Destroy Project</a> --}}
+                                        <form action="{{ route('admin.projects.destroy', $singleProject->id) }}"
+                                            method="POST" class="delete-form">
+                                            @csrf()
+                                            @method('delete')
+                                            <button class="btn btn-danger fw-bold"><i class="fas fa-trash"></i>delete</button>
+                                
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
