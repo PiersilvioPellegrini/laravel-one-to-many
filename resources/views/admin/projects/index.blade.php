@@ -24,12 +24,13 @@
                         </thead>
                         <tbody>
                             @foreach ($projects as $singleProject)
+                                
                                 <tr>
                                     <td>{{ $singleProject->id }}</td>
                                     <td>{{ $singleProject->img_cover }}</td>
                                     <td>{{ $singleProject->name }}</td>
                                     <td>{{ $singleProject->Description }}</td>
-                                    <td>{{ $singleProject->types->typeName }}</td>
+                                    <td>{{ $singleProject->type ? $singleProject->type->typeName : ' ' }}</td>
                                     <td>{{ $singleProject->link_project }}</td>
                                     <td>{{ $singleProject->creation_date }}</td>
                                     <td>

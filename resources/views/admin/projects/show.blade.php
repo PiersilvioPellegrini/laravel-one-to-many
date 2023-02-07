@@ -17,7 +17,7 @@
     <div class="card-body">
         <div class="card-title">{{ $project->name }}</div>
         <p class="card-text">{{ $project->description }}</p>
-        <p class="card-text">{{ $project->types->typeName }}</p>
+        <p class="card-text">{{ $project->type ? $project->type->typeName : ' ' }}</p>
         <p class="card-text">{{ $project->link_project }}</p>
         <p class="card-text">{{ $project->creation_date }}</p>
 

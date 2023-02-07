@@ -22,9 +22,11 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        $types = Type::all();
 
         return view("admin.projects.index",[
-            "projects" => $projects
+            "projects" => $projects,
+            "types"=>$types
 
         ]);
     }
@@ -42,7 +44,6 @@ class ProjectController extends Controller
             "types"=>$types
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -74,7 +75,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view("admin.projects.show", compact("project"));
+        $types = Type::all();
+        
+        return view("admin.projects.show", compact("project","types"));
         
     }
 

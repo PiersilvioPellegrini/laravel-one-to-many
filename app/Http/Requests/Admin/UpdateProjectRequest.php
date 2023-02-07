@@ -34,7 +34,7 @@ class UpdateProjectRequest extends FormRequest
             "link_project" => "min:20",
             "creation_date" => "required|date",
             "img_cover"=> "nullable|image",
-            "type_id"=>"nullable|exsist:types,id"
+            "type_id"=>"nullable"
         ];
     }
 
